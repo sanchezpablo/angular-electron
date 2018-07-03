@@ -1,0 +1,13 @@
+.loader-hidden {
+    visibility: hidden;
+}
+.loader-overlay {
+    opacity:    0.9; 
+    background: #000; 
+    width: calc(100% - 64px);
+    height: calc(100% - 32px); 
+    top:        32px; 
+    left:       64px; 
+    position:   fixed; 
+    z-index: 500000;
+}

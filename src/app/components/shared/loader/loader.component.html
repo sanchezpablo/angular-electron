@@ -1,0 +1,12 @@
+<div [class.loader-hidden]="!show">
+  <div class="loader-overlay">
+    <div class="app-loading" *ngIf="show">
+      <div class="lds-css ng-scope">
+        <div style="width: 100%;height: 100%; text-align: center;" class="lds-double-ring">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

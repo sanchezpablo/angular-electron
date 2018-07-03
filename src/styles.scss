@@ -1,7 +1,244 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
+
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+    $font-family: 'Open Sans'
+);
+@include mat-core($custom-typography);
+
+$mat-light-primary: ( 50: #0099ff,
+100: #0099ff,
+200: #0099ff,
+300: #0099ff,
+400: #0099ff,
+500: #0099ff,
+600: #0099ff,
+700: #0099ff,
+800: #0099ff,
+900: #0099ff, A100: #0099ff, A200: #0099ff, A400: #0099ff, A700: #0099ff, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+$default-primary: mat-palette($mat-light-primary, 700, 500, 900);
+$default-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$default-warn: mat-palette($mat-deep-orange);
+$default-theme: mat-light-theme($default-primary, $default-accent, $default-warn);
+@include angular-material-theme($default-theme);
+
+$dark-primary: mat-palette($mat-light-primary, 700, 500, 900);
+$dark-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.dark-theme { // css class for dark theme
+  // Include your custom theme.
+  @include angular-material-theme($dark-theme);
+
+  .foreground-color {
+    color: #fff;
+  }
+}
+
+// Export theme colors
+$primary: mat-color($default-primary);
+$accent: mat-color($default-accent);
+$warn: mat-color($default-warn);
+
+* {
+  border: 0;
   margin: 0;
   padding: 0;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+}
 
+html {
   height: 100%;
 }
+
+body {
+  background-color: #303030;
+  color: white;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  -ms-overflow-style: none;
+  overflow: hidden !important;
+  /* Disable text selection, or your app will feel like a web page */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Smoother startup */
+  animation: fadein 0.5s;
+  border: 1px solid $primary;
+}
+
+footer {
+  background-color: $primary;
+  font-size: 11px;
+  min-height: 12px;
+  padding: 4px;
+  padding-top: 5px;
+}
+
+app-settings {
+  width: 100%;
+}
+
+mat-toolbar.maintoolbar {
+  -webkit-app-region: drag;
+}
+
+app-root {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.fixed {
+  flex: none;
+  height: 32px;
+}
+
+.scrolling {
+  display: flex;
+  flex: auto;
+  overflow-y: auto;
+}
+
+.top {
+  align-self: flex-start;
+}
+
+.bottom {
+  align-self: flex-end;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="text"],
+button,
+textarea {
+  -webkit-app-region: no-drag;
+}
+
+.app-loading {
+  display: flex;
+  background-color: #EEEEEE;
+  color: black;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  background-color: #EEEEEE;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb {
+  background-color: mat-color($default-accent)
+}
+
+// loading spinner
+@keyframes lds-double-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes lds-double-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-double-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes lds-double-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+.lds-double-ring {
+  position: relative;
+  text-align: center;
+}
+
+.lds-double-ring div {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #222222 transparent #222222 transparent;
+  -webkit-animation: lds-double-ring 1s linear infinite;
+  animation: lds-double-ring 1s linear infinite;
+}
+
+.lds-double-ring div:nth-child(2) {
+  width: 140px;
+  height: 140px;
+  top: 30px;
+  left: 30px;
+  border-color: transparent #00d8ff transparent #00d8ff;
+  -webkit-animation: lds-double-ring_reverse 1s linear infinite;
+  animation: lds-double-ring_reverse 1s linear infinite;
+}
+
+.lds-double-ring {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+// ng progress
+.ng-progress-bar {
+  top: calc(0% + 32px) !important;
+}
+
+app-signin {
+  width: calc(100% - 74px);
+}
+
+.secondary-toolbar span {
+  color: white;
+}
+
+// .mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] circle {
+//   transition-property: stroke !important;
+//   animation-duration: 4s !important;
+//   animation-timing-function: cubic-bezier(.35,0,.25,1) !important;
+//   animation-iteration-count: infinite !important;
+// }

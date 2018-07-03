@@ -1,0 +1,37 @@
+.maintoolbar {
+  display: flex;
+  width: 100vw;
+  background-color: #0099ff;
+  height: 32px;
+}
+
+.maintoolbar h2 {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.maintoolbar mat-icon {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.maintoolbar-firstbutton {
+  margin-left: -14px;
+  margin-top: -6px;
+}
+
+.maintoolbar:last-child button {
+  margin-right: -14px;
+  margin-top: -5px;
+}
+
+.maintoolbar-left {
+  display: flex;
+  justify-content:flex-start;
+}
+
+.maintoolbar-right {
+  display: flex;
+  justify-content:flex-end;
+  margin-left: auto;
+}

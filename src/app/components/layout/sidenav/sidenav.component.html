@@ -1,0 +1,55 @@
+<mat-sidenav-container>
+  <mat-sidenav [style.z-index]="(isLoggedIn | async) ? '999999' : 'auto'" [class.mat-elevation-z2]="true" #sidenav mode="side" color="white" [opened]="true" [ngStyle]="{ 'width.px': (sidebarWidth | async) }">
+
+    <mat-nav-list>      
+      <mat-list-item routerLink="/home" routerLinkActive="active" [matTooltip]="((sidebarWidth | async) <= 64) ? ('SIDEBAR_OPTIONS.HOME_TOOLTIP' | translate) : ''" matTooltipPosition="right">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="(sidebarWidth | async) > 64" class="sidenav-item">
+          <h5>{{ 'SIDEBAR_OPTIONS.HOME' | translate }}</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="2" routerLinkActive="active" [matTooltip]="((sidebarWidth | async) <= 64) ? ('SIDEBAR_OPTIONS.MAGIC_TOOLTIP' | translate) : ''" matTooltipPosition="right">
+        <mat-icon mat-list-icon>scanner</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="(sidebarWidth | async) > 64" class="sidenav-item">
+          <h5>{{ 'SIDEBAR_OPTIONS.MAGIC' | translate }}</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="3" routerLinkActive="active" [matTooltip]="((sidebarWidth | async) <= 64) ? ('SIDEBAR_OPTIONS.LOAD_TOOLTIP' | translate) : ''" matTooltipPosition="right">
+        <mat-icon mat-list-icon>perm_media</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="(sidebarWidth | async) > 64" class="sidenav-item">
+          <h5>{{ 'SIDEBAR_OPTIONS.LOAD' | translate }}</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/settings" routerLinkActive="active" [matTooltip]="((sidebarWidth | async) <= 64) ? ('SIDEBAR_OPTIONS.SETTINGS_TOOLTIP' | translate) : ''" matTooltipPosition="right">
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="(sidebarWidth | async) > 64" class="sidenav-item">
+          <h5>{{ 'SIDEBAR_OPTIONS.SETTINGS' | translate }}</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="5" routerLinkActive="active" [matTooltip]="((sidebarWidth | async) <= 64) ? ('SIDEBAR_OPTIONS.EXIT_TOOLTIP' | translate) : ''" matTooltipPosition="right" (click)="logout()">
+        <mat-icon mat-list-icon>exit_to_app</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="(sidebarWidth | async) > 64" class="sidenav-item">
+          <h5>{{ 'SIDEBAR_OPTIONS.EXIT' | translate }}</h5>
+        </div>
+      </mat-list-item>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': (sidebarWidth | async), 'width': 'calc(100vw - ' + (sidebarWidth | async) + 'px)' }">
+      <ng-progress></ng-progress>
+      <router-outlet></router-outlet>    
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

@@ -1,0 +1,26 @@
+mat-sidenav {
+  -webkit-transition: width .2s !important; /* For Safari 3.1 to 6.0 */
+  transition: width .2s !important;
+}
+
+mat-sidenav-content {
+  display: flex;  
+  flex-direction: column;
+  height: calc(100vh - 52px);
+  width: 100vw;
+}
+
+.sidenav-item {
+  display: inline;
+  flex: none;
+  font-size: 20px;
+}
+
+.sidenav-item h5 {
+  display: inline;
+  flex: none;
+  padding-top: 6px;
+  padding-left: 4px;
+  font-weight: 100;
+  font-size: 14px;
+}

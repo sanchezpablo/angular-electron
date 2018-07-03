@@ -1,0 +1,12 @@
+.example-container {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+.center {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    margin: 10px;
+}

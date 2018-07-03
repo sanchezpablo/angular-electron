@@ -1,0 +1,21 @@
+<mat-toolbar [class.mat-elevation-z1]="true" color="accent" style="width: 100%" class="secondary-toolbar">
+  <span class="fill-space">
+    <h2 mat-truncate>{{ 'SIDEBAR_OPTIONS.SETTINGS' | translate }}</h2>
+  </span>
+  <button mat-icon-button (click)="closeSettings()" style="margin-left: auto">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="example-container">
+  <mat-list>
+    <mat-list-item>{{ 'PAGES.SETTINGS.GENERAL' | translate }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-slide-toggle [(ngModel)]="isThemeDark"  (change)="themeChanged()">Dark Theme</mat-slide-toggle>
+    </mat-list-item>    
+    <mat-list-item>
+      <mat-slide-toggle  [(ngModel)]="bonanzaOnly"  (change)="bonanzaOnlyChanged()">Bonanza Only</mat-slide-toggle>
+    </mat-list-item>
+    {{ helloWorldMessage }}
+  </mat-list>
+</div>

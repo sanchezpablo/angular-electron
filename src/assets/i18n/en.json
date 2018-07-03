@@ -1,7 +1,34 @@
 {
+  "APPLICATION_TITLE": "EpsilonNet Digital Accounting POC",
+  "SIDEBAR_OPTIONS": {
+    "HOME": "Home",
+    "HOME_TOOLTIP": "Home page",
+    "MAGIC": "Do the Magic",
+    "MAGIC_TOOLTIP": "Performs OCR on image",
+    "LOAD": "Load Files",
+    "LOAD_TOOLTIP": "Load images for processing",
+    "SETTINGS": "Settings",
+    "SETTINGS_TOOLTIP": "Application settings",
+    "EXIT": "Exit",
+    "EXIT_TOOLTIP": "Quit application"
+  },
+  "FOOTER": {
+    "TEXT": "EpsilonNet"
+  },
   "PAGES": {
-      "HOME": {
-          "TITLE": "App works !"
-      }
+    "HOME": {
+      "TITLE": "EpsilonNet Digital Accounting POC"
+    },
+    "SETTINGS": {
+      "GENERAL": "General"
+    }
+  },
+  "GENERAL": {
+    "DROP_FILES_HERE": "Drop files here",
+    "AUTHENTICATION": {
+      "LOGIN": "Login",
+      "USERNAME": "Username",
+      "PASSWORD": "Password"
+    }
   }
 }

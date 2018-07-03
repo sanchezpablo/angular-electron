@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="maintoolbar">
+    <div class="maintoolbar-left">
+      <button class="maintoolbar-firstbutton" mat-icon-button id="toggle-sidebar" (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <h2 mat-truncate>&nbsp;&nbsp;Digital Accounting POC</h2>
+      <button mat-icon-button id="menu-sidebar">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </div>
+
+    <div class="maintoolbar-right">
+      <button mat-icon-button id="minimize-sidebar"  (click)="minimizeWindow()">
+        <mat-icon>minimize</mat-icon>
+      </button>
+
+      <button *ngIf="!(mainWindowState  | async).isMaximized" mat-icon-button (click)="maximizeWindow()">
+        <mat-icon>crop_square</mat-icon>
+      </button>
+
+      <button *ngIf="(mainWindowState  | async).isMaximized" mat-icon-button (click)="unmaximizeWindow()">
+        <svg style="width:20px;height:20px" viewBox="0 0 20 20">
+          <path fill="#fff" d="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z" />
+        </svg>
+      </button>
+
+      <button mat-icon-button id="close-btn" (click)="quitApplication()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+</mat-toolbar>
